@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>예약맛집</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link th:href="@{/css/mainpage.css}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="./mainpage">예약맛집</a>
+                <!--<img th:src="@{/assets/main-img/navbar-logo.svg}" alt="..." />-->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="./selectday">예약 수정</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../review/list">리뷰</a></li>
+                        <div sec:authorize="isAuthenticated()">
+                            <li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
+                        </div>
+                        <div sec:authorize="isAnonymous()">
+                            <li class="nav-item"><a class="nav-link" href="../customer/login">로그인</a></li>
+                        </div>
+                        <div sec:authorize="isAuthenticated()">
+                            <li class="nav-item"><a class="nav-link" href="../mypage/main">내 페이지</a> </li>
+                        </div>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome To Our Restaurant!</div>
+                <div class="masthead-heading text-uppercase">우리의 예술에 빠지다</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="./selectday">예약</a>
+            </div>
+        </header>
+        <!--운영시간-->
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">운영시간</h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-spoon fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">점심</h4>
+                        <p class="text-muted">오전 11:30 ~ 오후 2:30</p>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fas fa-cutlery fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">저녁</h4>
+                        <p class="text-muted">오후 5:30 ~ 오후 9:30</p>
+                    </div> 
+                </div>
+            </div>
+        </section>
+        <!--시그니처 메뉴-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">시그니처 메뉴</h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 mb-4">
+                        <!-- Portfolio item 1-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" th:src="@{/assets/main-img/portfolio/1.jpg}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">낙지볶음</div>
+                                <div class="portfolio-caption-subheading text-muted">송정상</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mb-4">
+                        <!-- Portfolio item 2-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" th:src="@{/assets/main-img/portfolio/2.jpg}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">소갈비찜</div>
+                                <div class="portfolio-caption-subheading text-muted">부귀상</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mb-4">
+                        <!-- Portfolio item 3-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" th:src="@{/assets/main-img/portfolio/3.jpg}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">육회 감태말이</div>
+                                <div class="portfolio-caption-subheading text-muted">영화상</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 mb-4 mb-lg-0">
+                        <!-- Portfolio item 4-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" th:src="@{/assets/main-img/portfolio/4.jpg}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">떡갈비</div>
+                                <div class="portfolio-caption-subheading text-muted">떡갈비 정식</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- 코스 요리 About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">코스</h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{/assets/main-img/about/dinner1.jpg}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>송정상</h4>
+                                <h4 class="subheading"></h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    우리의 '송정상'은 한식의 맛을 통해 독특한 요리 여행을 제공합니다. 
+                                    메뉴는 죽.물김치, 계절샐러드, 궁중잡채, 해물냉채, 표고버섯강정, 계절탕, 소고기 찹쌀탕수, 낙지볶음, 후식으로 구성되며 
+                                    가장 신선하고 좋은 재료만을 사용한 가게의 대표하는 요리를 맛보십시오.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{/assets/main-img/about/dinner2.jpg}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>떡갈비 정식</h4>
+                                <h4 class="subheading"></h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    우리의 '떡갈비정식'은 우리의 전통의 맛인 떡갈비를 저희 가게식으로 재탄생시켰습니다.
+                                    메뉴는 죽.물김치, 계절 샐러드, 궁중잡채, 해물냉채, 표고버섯강정, 계절탕, 감자타르트, 소고기 찹쌀탕수, 떡갈비, 후식으로 구성되며
+                                    최고의 셰프들이 직접 만든 떡갈비에 
+                                    특제 소스가 완벽하게 어우러져 최고의 풍미를 자랑합니다. 
+                                    저희 떡갈비만의 독특한 맛을 즐겨보세요.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{/assets/main-img/about/lunch1.jpg}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>영화상</h4>
+                                <h4 class="subheading"></h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    우리의 '영화상'은 부귀영화를 누리듯 푸짐한 한상을 제공합니다.
+                                    메뉴는 죽.물김치, 계절 샐러드, 궁중잡채, 활어회, 수삼채, 해파리 냉채
+                                    계절탕, 표고강정&새우튀김, 소고기 찹쌀탕수, 한방보쌈, 육회 감태말이로
+                                    구성됩니다. 맛과 양의 밸런스가 잡힌 한상차림을 즐겨보세요.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{/assets/main-img/about/lunch2.jpg}" alt="..." /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>부귀상</h4>
+                                <h4 class="subheading"></h4>
+                            </div>
+                            <div class="timeline-body">
+                                <p class="text-muted">
+                                    우리의 '부귀상'은 부귀영화를 누리듯 푸짐한 한상을 제공합니다.
+                                    메뉴는 죽.물김치, 계절 샐러드, 궁중잡채, 활어회, 수삼채, 해파리 냉채
+                                    계절탕, 전복요리, 한우로스편채, 소고기 찹쌀탕수, 랍스타 버터구이, 소갈비찜으로
+                                    구성됩니다. 저희 가게 최고의 한상차림을 경험해보세요.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+                    <div class="col-lg-4 my-3 my-lg-0">
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-4 text-lg-end">
+                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Portfolio Modals-->
+        <!-- Portfolio item 1 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img th:src="@{/assets/main-img/close-icon.svg}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">낙지볶음</h2>
+                                    <p class="item-intro text-muted">송정상</p>
+                                    <img class="img-fluid d-block mx-auto" th:src="@{/assets/main-img/portfolio/1.jpg}" alt="..." />
+                                    <p> 
+                                        '송정상'의 하이라이트인 낙지 볶음을 소개합니다. 
+                                        우리의 전문 셰프팀은 부드럽고 육즙이 풍부한 낙지의 풍미를 높이는 향신료와 소스의 완벽한 조화로 이 요리를 준비합니다. 
+                                        한상을 대미를 장식하는 이 요리는 진정한 요리의 걸작입니다. 
+                                        완벽하게 조리된 낙지의 풍부한 맛과 식감을 경험해 보세요. 
+                                    </p>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        닫기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 2 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img th:src="@{/assets/main-img/close-icon.svg}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">소갈비찜</h2>
+                                    <p class="item-intro text-muted">부귀상</p>
+                                    <img class="img-fluid d-block mx-auto" th:src="@{/assets/main-img/portfolio/2.jpg}" alt="..." />
+                                    <p> 
+                                        우리의 갈비찜은 부드럽고 소스가 잘어우러진 고기에 대한 갈망을 만족시킬 요리입니다. 
+                                        이 요리는 육즙이 풍부한 소 갈비를 풍부하고 풍미 가득한 소스로 푹 끓이고
+                                        허브와 향신료를 혼합하여 대담하면서도 편안한 복합적인 풍미 경험하게 해줄 것입니다. 
+                                        고기를 좋아하든 그렇지 않든 우리의 갈비찜은 당신의 입맛을 즐겁게 해 줄 것입니다. 
+                                        아늑하고 매력적인 레스토랑에서 정통 한식 요리를 즐겨 보세요.
+                                    </p>
+                                    <
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        닫기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 3 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img th:src="@{/assets/main-img/close-icon.svg}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">육회 감태말이</h2>
+                                    <p class="item-intro text-muted">영화상</p>
+                                    <img class="img-fluid d-block mx-auto" th:src="@{/assets/main-img/portfolio/3.jpg}" alt="..." />
+                                    <p>
+                                        저희 육회 감태말이는 섬세하고 세련된 요리로 여러분을 특별한 여행으로 안내할 것입니다. 
+                                        이 요리는 육회에 감태를 만것으로 달콤한 육회와 배, 맛을 상쾌하게 해주는 무순을 감태로 감싼 요리입니다. 
+                                        이 요리는 보기에도 아름다울 뿐만 아니라 맛의 조화가 뛰어나 색다른 경험을 시켜줄 것입니다. 
+                                        독특하고 기억에 남을 요리 경험을 찾고 있다면 육회 감태말이을 꼭 드셔보세요. 
+                                        따뜻하고 매력적인 레스토랑에 오셔서 한국의 맛을 음미해 보십시오.
+                                    </p>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        닫기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio item 4 modal popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img th:src="@{/assets/main-img/close-icon.svg}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project details-->
+                                    <h2 class="text-uppercase">떡갈비</h2>
+                                    <p class="item-intro text-muted">떡갈비정식</p>
+                                    <img class="img-fluid d-block mx-auto" th:src="@{/assets/main-img/portfolio/4.jpg}" alt="..." />
+                                    <p>
+                                        떡갈비의 풍미를 위해 사용하는 소스가 고기에 조화를 이루도록 노력하고,
+                                        떡갈비는 고기를 다지고 모양을 낸 후 특제 소스를 발라 불에 은은하게 구워서 만들어 
+                                        고소하고 육즙이 풍부하도록 노력했습니다. 
+                                        또한 저희 가게는 풍미가 가득하고 다양한 반찬과 함께 제공되어 한 상의 균형을 위해 노력했습니다.
+                                        아늑하고 친근한 분위기의 레스토랑에서 이 독특하고 맛있는 요리를 즐겨 보십시오.
+                                    </p>
+                                    
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        닫기
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script th:src="@{/js/scripts.js}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>

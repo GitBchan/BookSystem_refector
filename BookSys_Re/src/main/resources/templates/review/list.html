@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	   xmlns:th="http://www.thymeleaf.org"
+	   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+	<head>
+		<title>Full Motion</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" th:href="@{/css/main.css}" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<title>예약맛집</title>
+		<!-- Favicon-->
+		<link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
+		<!-- Font Awesome icons (free version)-->
+		<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+		<!-- Google fonts-->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+		<!-- Core theme CSS (includes Bootstrap)-->
+		<link th:href="@{/css/mainpage.css}" rel="stylesheet" />
+		<link th:href="@{/css/styles.css}" rel="stylesheet" />
+	</head>
+	<body id="top">
+
+			<!-- Banner -->
+			<!--
+				To use a video as your background, set data-video to the name of your video without
+				its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
+				formats to work correctly.
+			-->
+			<!--	<section id="banner" data-video="images/banner">
+					<div class="inner">
+						<header>
+							<h1>Full Motion</h1>
+							<p>A responsive video gallery template with a functional lightbox<br />
+							designed by <a href="https://templated.co/">Templated</a> and released under the Creative Commons License.</p>
+						</header>
+						<a href="#main" class="more">Learn More</a>
+					</div>
+				</section>-->
+
+			<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+				<div class="container">
+					<a class="navbar-brand" href="../reservation/mainpage">예약맛집</a>
+					<!--<img th:src="@{/assets/main-img/navbar-logo.svg}" alt="..." />-->
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+						Menu
+						<i class="fas fa-bars ms-1"></i>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+							<li class="nav-item"><a class="nav-link" href="../reservation/selectday">예약 수정</a></li>
+							<li class="nav-item"><a class="nav-link" href="../reservation/review.html">리뷰</a></li>
+							<div sec:authorize="isAuthenticated()">
+								<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
+							</div>
+							<div sec:authorize="isAnonymous()">
+								<li class="nav-item"><a class="nav-link" href="../customer/login">로그인</a></li>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<div class="title">
+				<h3 class="section-subheading text-center text-muted">-----</h3>
+				<h3 class="section-subheading text-center text-muted">-----</h3>
+			</div>
+
+			<!-- Main -->
+				<div id="main">
+					<div class="inner">
+
+					<!-- Boxes -->
+						<div class="thumbnails">
+
+							<div class="box">
+								<a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
+								<div class="inner">
+									<h3>Nascetur nunc varius commodo</h3>
+									<p>Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi accumsan.</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+								<div class="inner">
+									<h3>Nascetur nunc varius commodo</h3>
+									<p>Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi accumsan.</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button style2 fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+								<div class="inner">
+									<h3>Nascetur nunc varius commodo</h3>
+									<p>Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi accumsan.</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button style3 fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
+								<div class="inner">
+									<h3>Nascetur nunc varius commodo</h3>
+									<p>Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi accumsan.</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button style2 fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
+								<div class="inner">
+									<h3>Nascetur nunc varius commodo</h3>
+									<p>Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi accumsan.</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button style3 fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+
+							<div class="box">
+								<a href="https://youtu.be/s6zR2T9vn2c" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+								<div class="inner">
+									<h3>Nascetur nunc varius commodo</h3>
+									<p>Interdum amet accumsan placerat commodo ut amet aliquam blandit nunc tempor lobortis nunc non. Mi accumsan.</p>
+									<a href="https://youtu.be/s6zR2T9vn2c" class="button fit" data-poptrox="youtube,800x400">Watch</a>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="float-none">
+						<ul class="pagination flex-wrap">
+							<li class="page-item" th:if="${responseDTO.prev}">
+								<a class="page-link" th:data-num="${responseDTO.start - 1}">Previous</a>
+							</li>
+							<th:block th:each="i: ${#numbers.sequence(responseDTO.start, responseDTO.end)}">
+								<li th:class="${responseDTO.page == i}?'page-item active':'page-item'">
+									<a th:class="page-link" th:data-num="${i}">[[${i}]]</a>
+								</li>
+							</th:block>
+
+							<li th:class="page-item" th:if="${responseDTO.next}">
+								<a class="page-link" th:data-num="${responseDTO.end + 1}">Next</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			<!-- Footer-->
+			<footer class="footer py-4">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+						<div class="col-lg-4 my-3 my-lg-0">
+							<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+							<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+							<a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+						</div>
+						<div class="col-lg-4 text-lg-end">
+							<a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+							<a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+			<div class="copyright">
+				Site made with: <a href="https://templated.co/">Templated</a>.
+			</div>
+
+		<!-- Scripts -->
+			<script th:src="@{/js/jquery.min.js}"></script>
+			<script th:src="@{/js/jquery.scrolly.min.js}"></script>
+			<script th:src="@{/js/jquery.poptrox.min.js}"></script>
+			<script th:src="@{/js/skel.min.js}"></script>
+			<script th:src="@{/js/util.js}"></script>
+			<script th:src="@{/js/main.js}"></script>
+
+	</body>
+
+<script>
+	const navbarCollapsible = document.body.querySelector('#mainNav');
+	navbarCollapsible.classList.add('navbar-shrink')
+
+</script>
+</html>

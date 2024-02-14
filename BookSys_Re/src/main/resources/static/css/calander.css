@@ -1,0 +1,16 @@
+    #calendar td {
+            width: 500px;
+            height: 100px;
+    }
+
+    .choiceDay{
+            background-color: #3E85EF;
+            color: #fff;
+            cursor: pointer;
+    }
+
+    #out_calendar{
+            background-color: #FFFFFF;
+            margin-bottom: 10px;
+            border-radius: 2em;
+    }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       xmlns:th="http://www.thymeleaf.org"
+       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<input type="hidden" name="reservationjson" th:value="${reservationjson}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>예약맛집</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link th:href="@{/css/mainpage.css}" rel="stylesheet" />
+</head>
+<body id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="./mainpage">예약맛집</a>
+    <!--<img th:src="@{/assets/main-img/navbar-logo.svg}" alt="..." />-->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars ms-1"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+        <li class="nav-item"><a class="nav-link2" href="./selectday">예약 수정</a></li>
+        <li class="nav-item"><a class="nav-link2" href="./review.html">리뷰</a></li>
+        <div sec:authorize="isAuthenticated()">
+          <li class="nav-item"><a class="nav-link2" href="/logout">로그아웃</a></li>
+        </div>
+        <div sec:authorize="isAnonymous()">
+          <li class="nav-item"><a class="nav-link2" href="../customer/login">로그인</a></li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--예약 관리-->
+<section class="page-section" id="services">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">예약 관리</h2>
+      <h3 class="section-subheading text-muted"></h3>
+    </div>
+    <div class="row text-center">
+      <table id="filter" class="table inventory-table table-bordered table-hover all-engine-table">
+        <thead>
+          <th>예약번호</th>
+          <th>이름</th>
+          <th>전화번호</th>
+          <th>예약시간</th>
+          <th>예약 취소</th>
+        </thead>
+        <tbody id="ReservationTbody">
+        </tbody>
+      </table>
+
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script th:src="@{/js/managersv.js}"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>
